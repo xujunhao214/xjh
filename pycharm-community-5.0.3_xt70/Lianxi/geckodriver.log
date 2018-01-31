@@ -91,3 +91,9 @@ JavaScript warning: http://dl.reg.163.com/src/mp-agent-finger.html?WEBZJVersion=
 1503554271659	geckodriver::marionette	INFO	Connecting to Marionette on localhost:51089
 1503554273861	Marionette	INFO	Listening on port 51089
 [Child 10740] ###!!! ABORT: Aborting on channel error.: file c:/builds/moz2_slave/m-rel-w64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1511505455885	geckodriver	INFO	Listening on 127.0.0.1:57071
+1511505462387	geckodriver	INFO	Listening on 127.0.0.1:57073
+1511505464493	mozprofile::profile	INFO	Using profile path C:\Users\DELL\AppData\Local\Temp\rust_mozprofile.YRPLVOghvIao
+1511505464514	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe
+1511505464552	geckodriver::marionette	INFO	Connecting to Marionette on localhost:57079
+1511505467006	Marionette	INFO	Listening on port 57079

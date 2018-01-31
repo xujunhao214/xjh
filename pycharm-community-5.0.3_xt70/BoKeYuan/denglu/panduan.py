@@ -1,6 +1,7 @@
 from selenium import webdriver
 import time
 import unittest
+import HTMLTestRunner
 
 class Login(unittest.TestCase):
 
@@ -12,13 +13,13 @@ class Login(unittest.TestCase):
         self.driver.get("https://www.cnblogs.com/")
         self.driver.find_element_by_xpath("//SPAN[@id='span_userinfo']/A[1]").click()
         time.sleep(5)
-        self.driver.get_screenshot_as_file("./photograph/denglu.jpg")
+        self.driver.get_screenshot_as_file("../picture/denglu.jpg")
         self.driver.find_element_by_xpath("//INPUT[@id='input1']").send_keys(password)
         time.sleep(3)
-        self.driver.get_screenshot_as_file("./photograph/name.jpg")
+        self.driver.get_screenshot_as_file("../picture/name.jpg")
         self.driver.find_element_by_xpath("//INPUT[@id='input2']").send_keys(name)
         time.sleep(3)
-        self.driver.get_screenshot_as_file("./photograph/password.jpg")
+        self.driver.get_screenshot_as_file("../picture/password.jpg")
         self.driver.find_element_by_xpath("//INPUT[@id='signin']").click()
 
     def test_register_user_null(self):
@@ -61,4 +62,16 @@ class Login(unittest.TestCase):
         self.driver.quit()
 
 if __name__ == "__main__":
-    unittest.main()
+    suite=unittest.TestSuite()
+    suite.addTest(Login("test_register_user_null"))
+    suite.addTest(Login("test_register_pwd_null"))
+    suite.addTest(Login("test_register_user_error"))
+    suite.addTest(Login("test_register_pwd_error"))
+    suite.addTest(Login("test_register_suess"))
+
+    file_name='bokeyuan'+str(time.strftime('%Y%m%d%H%M%S'))+'.html'
+    file_path='../test_report/'+file_name
+    file_result=open(file_path,'wb')
+    runner=HTMLTestRunner.HTMLTestRunner(stream=file_result,title=u'博客园登录测试报告结果：',description=u'用例执行情况：')
+    runner.run(suite)
+    file_result.close()
